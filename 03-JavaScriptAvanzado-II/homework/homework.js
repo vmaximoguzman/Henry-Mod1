@@ -39,16 +39,19 @@ otra vez cálculos que ya se hicieron anteriormente.
   squareCache(5)    // no volverá a invocar a square, simplemente buscará en la caché cuál es el resultado de square(5) y lo retornará (tip: si usaste un objeto, podés usar hasOwnProperty) */
 
 function cacheFunction(cb) {
-  let objeto = {}
+  let objeto = {} //Este obj será donde se guardará el arg/argumento.
 
-  return function (arg){
+  return function (arg){ //Se utiliza el 'return function(){ ... }' SIEMPRE que sea un closure.
 
-  if(objeto.hasOwnProperty(arg)){
-    return objeto[arg]
-  }else{
-    return objeto[arg] = cb(arg)
+    if(objeto.hasOwnProperty(arg)){ //.hasOwnProperty es un método que funciona con obj para saber si tiene una propiedad en específico (Método booleano). En este caso, pregunta si tiene la propiedad arg (Que lo define el test).
+      return objeto[arg] //Si la tiene, retornamos el valor de la propiedad pedida.
+    }else{
+      return objeto[arg] = cb(arg) //Si no la tiene, le agregamos una propieda con obj[arg] y le damos un valor en especial con cb(arg).
+      // objeto[arg] = cb(arg) ~~~ objeto["5"] = cb("5") ~~~ obj{5: "5"}.
+    }
   }
-  }
+
+  //Este caché nos sirve para no repetir propiedades ni valores en un objeto (Ya que, en caso de hacerlo, se terminarían pisando).
 }
 
 //----------------------------------------
