@@ -44,10 +44,9 @@ function cacheFunction(cb) {
   return function (arg){ //Se utiliza el 'return function(){ ... }' SIEMPRE que sea un closure.
 
     if(objeto.hasOwnProperty(arg)){ //.hasOwnProperty es un método que funciona con obj para saber si tiene una propiedad en específico (Devuelve un booleano). En este caso, pregunta si tiene la propiedad arg (Que lo define el test).
-      return objeto[arg] //Si la tiene, retornamos el valor de la propiedad pedida.
+      return objeto[arg] //Si la tiene, retornamos el valor de la propiedad pedida (bracket notation).
     }else{
-      return objeto[arg] = cb(arg) //Si no la tiene, le agregamos una propieda con obj[arg] y le damos un valor en especial con cb(arg).
-      // objeto[arg] = cb(arg) ~~~ objeto["5"] = cb("5") ~~~ obj{5: "5"}.
+      return objeto[arg] = cb(arg) //Si no la tiene, le agregamos una propieda con obj[arg] y le damos un valor en especial (valor de operación) con cb(arg).
     }
   }
 
