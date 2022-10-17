@@ -21,7 +21,7 @@ function DecimalABinario(num) {
 
    return rest;
 
-   //return num.toString(2);
+   //return num.toString(2); //Convierte string a valor, con base de 2.
 }
 
 module.exports = {
