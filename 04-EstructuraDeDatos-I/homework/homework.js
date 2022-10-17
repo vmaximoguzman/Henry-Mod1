@@ -9,14 +9,18 @@ function nFactorial(n) {
    }
 
    return n * nFactorial(n - 1);
+   //Si n es cualquier num positivo, el factorial de este será igual a n * factorial de (n-1).
+   //No es necesario, pero también pensar que si fuera decimal, sería bueno utilizar parseInt o Math.floor para averiguar si es, o no, decimal.
 }
 
 // EJERCICIO 2
 function nFibonacci(n) {
-   if (n <= 1) {
-      return n;
-   }
+   if (n <= 1) return n;
+   if (n < 0) return null;
+
    return nFibonacci(n-1) + nFibonacci(n-2);
+   //Debe de retornar la suma de lo que haya en el último elementos más el anteúltimo.
+
 }
 
 // EJERCICIO 3
