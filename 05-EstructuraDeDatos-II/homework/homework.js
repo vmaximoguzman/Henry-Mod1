@@ -46,7 +46,7 @@ LinkedList.prototype.remove = function () {
 
   if (!current) return null;
 
-  if (current.next) {
+  /* if (current.next) {
   
     while (current.next) {
       current = current.next;
@@ -62,7 +62,20 @@ LinkedList.prototype.remove = function () {
   let dev = current.value;
   this.head = null;
   this._length--;
-  return dev;
+  return dev; */
+
+  if (!current.next) { //Si no existe una caja siguiente.
+    this.head = null;
+    return current.value;
+  }
+
+  while (current.next.next) { //Mientras que exista una caja, además de la caja en la que estamos parados.
+    current = current.next; //Movernos a la siguiente caja.
+  }
+
+  let dev = current.next;
+  current.next = null;
+  return dev.value;
 
 }
 
